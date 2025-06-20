@@ -1,16 +1,16 @@
 # isphus1973.github.io
 
-Blog pessoal construído com [Astro](https://astro.build/), pronto para deploy no GitHub Pages.
+Personal blog built with [Astro](https://astro.build/), ready for deployment on GitHub Pages.
 
-## Recursos
+## Features
 
-- Suporte a Markdown para posts
-- Renderização de equações LaTeX com KaTeX (use `$...$` ou `$$...$$`)
-- Tema responsivo com CSS puro
-- SEO, sitemap, RSS e performance otimizados
-- Deploy automático via GitHub Actions
+- Markdown support for posts
+- LaTeX equations rendering with KaTeX (use `$...$` or `$$...$$`)
+- Responsive theme with pure CSS
+- SEO, sitemap, RSS, and optimized performance
+- Automatic deploy via GitHub Actions
 
-## Estrutura do Projeto
+## Project Structure
 
 ```
 ├── public/
@@ -25,23 +25,23 @@ Blog pessoal construído com [Astro](https://astro.build/), pronto para deploy n
 └── tsconfig.json
 ```
 
-## Comandos
+## Commands
 
-| Comando             | Ação                                         |
-|--------------------|----------------------------------------------|
-| `npm install`      | Instala as dependências                      |
-| `npm run dev`      | Inicia o servidor local em `localhost:4321`  |
-| `npm run build`    | Gera o site estático em `./dist/`            |
-| `npm run preview`  | Visualiza o build localmente                 |
+| Command           | Action                                         |
+|------------------|------------------------------------------------|
+| `npm install`     | Install dependencies                           |
+| `npm run dev`     | Start local server at `localhost:4321`         |
+| `npm run build`   | Generate static site in `./dist/`              |
+| `npm run preview` | Preview the build locally                      |
 
-## Deploy no GitHub Pages
+## Deploy on GitHub Pages
 
-O deploy é feito automaticamente via GitHub Actions ao commitar na branch `main`.
+Deployment is done automatically via GitHub Actions when committing to the `main` branch.
 
-## Como usar LaTeX
+## How to use LaTeX
 
-Basta escrever equações entre `$...$` (inline) ou `$$...$$` (bloco) nos seus arquivos Markdown.
+Just write equations between `$...$` (inline) or `$$...$$` (block) in your Markdown files.
 
 ---
 
-Este projeto é baseado no template oficial de blog do Astro.
+This project is based on the official Astro blog template.
