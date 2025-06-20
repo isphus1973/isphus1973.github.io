@@ -1,11 +1,11 @@
 ---
-title: "Calculating a distribution of a function of random variables"
-description: "Although I am a physicist, I have no prior advanced course in statistics. However, I have faced many situations in my work where I have needed to deal with random variables. This has led me to be interested in the use of the Dirac delta function to model the distribution of a function of a set of random variables."
+title: "Calculating the Distribution of a Function of Random Variables"
+description: "Although I am a physicist, I have never taken an advanced course in statistics. However, I have faced many situations in my work where I needed to deal with random variables. This has led me to become interested in the use of the Dirac delta function to model the distribution of a function of a set of random variables."
 pubDate: "2023-07-17"
 heroImage: "../../assets/blog-placeholder-3.jpg"
 ---
 
-Although I am a physicist, I have no prior advanced course in statistics. However, I have faced many situations in my work where I have needed to deal with random variables. This has led me to be interested in the use of the Dirac delta function to model the distribution of a function of a set of random variables.
+Although I am a physicist, I have never taken an advanced course in statistics. However, I have faced many situations in my work where I needed to deal with random variables. This has led me to become interested in the use of the Dirac delta function to model the distribution of a function of a set of random variables.
 
 The Dirac delta, represented as $\delta(x)$, is a generalized function that has the nice property:
 
@@ -15,19 +15,19 @@ $$
 
 This makes it well-suited for modeling the distribution of a function of a set of random variables, because it allows us to calculate the contribution of a single point.
 
-For instance, the distribution of the random variable $\hat{Z}$, $p(z)$ given by the equation $\hat{Z} = f\left(\hat{X}, \hat{Y}\right)$, in which the random variables are distributed following the distribution density function $p(x, y)$ with domain $\Omega$ is given by
+For instance, the distribution of the random variable $\hat{Z}$, $p(z)$, given by the equation $\hat{Z} = f\left(\hat{X}, \hat{Y}\right)$, in which the random variables are distributed according to the density function $p(x, y)$ with domain $\Omega$, is given by
 
 $$
 p(z) = \int_\Omega p(x, y) \delta\left(z - f(x, y)\right)dxdy
 $$
 
-In the rest of this blog post, I will give the intuition of how the distribution of a function of random variables works, using the sum of rolling independent dice as an example. I will then present the general formula for discrete random variables, and then for continuous random variables. Finally, I will discuss the situation of conditional probabilities, sampling, and some interesting observations.
+In the rest of this blog post, I will give the intuition behind how the distribution of a function of random variables works, using the sum of rolling independent dice as an example. I will then present the general formula for discrete random variables, and then for continuous random variables. Finally, I will discuss the situation of conditional probabilities, sampling, and some interesting observations.
 
 ## Craps
 
-Many movies featuring casinos the characters play a game called [craps](https://en.wikipedia.org/wiki/Craps), which the points of each player comes from a result of the sum of the values of two dice. We know that the distribution of a fair die is $1/6$ for each face, but how about two dice?
+In many movies featuring casinos, the characters play a game called [craps](https://en.wikipedia.org/wiki/Craps), in which the points of each player come from the result of the sum of the values of two dice. We know that the distribution of a fair die is $1/6$ for each face, but what about two dice?
 
-First lets check an empirical distribution of the sum of two fair dice. For fair, it means the chance of getting any of its faces are equal to $1/6$, i.e., it is an [uniform distribution](https://en.wikipedia.org/wiki/Continuous_uniform_distribution). Its distribution is shown below:
+First, let's check an empirical distribution of the sum of two fair dice. By fair, I mean the chance of getting any of its faces is equal to $1/6$, i.e., it is a [uniform distribution](https://en.wikipedia.org/wiki/Continuous_uniform_distribution). Its distribution is shown below:
 
 ```python
 import numpy as np
@@ -51,7 +51,7 @@ plt.show()
 
 ![Fair die distribution](/images/delta-random-variable_2_0.png)
 
-As expected, each face was drawn approximately $1/6\sim 16.\bar{6}$%. It is an uniform distribution. If we sum two of these uniform distributions, we get the two dice sum distribution, which is not an uniform distribution, as shown below:
+As expected, each face was drawn approximately $1/6\sim 16.\bar{6}$%. It is a uniform distribution. If we sum two of these uniform distributions, we get the two-dice sum distribution, which is not a uniform distribution, as shown below:
 
 ```python
 g = np.random.default_rng(0x533D)
@@ -72,7 +72,7 @@ plt.show()
 
 ![Two dice sum distribution](/images/delta-random-variable_4_0.png)
 
-Even though the distribution of a die is uniform, the sum of two dice has a pyramidal form. We can reason about this form calculating how many ways the dice can land to generate the result. For example, to get the value $3$, the dice could be (1, 2) or (2, 1), but to get the value 2 if the two dice land in the value 1: (1, 1). All the possibilities are mapped in the table below:
+Even though the distribution of a die is uniform, the sum of two dice has a pyramidal shape. We can reason about this shape by calculating how many ways the dice can land to generate each result. For example, to get the value $3$, the dice could be (1, 2) or (2, 1), but to get the value 2, both dice must land on 1: (1, 1). All the possibilities are mapped in the table below:
 
 | Dice sum | Possible outcomes                | # outcomes | percentage         |
 |:--------:|:------------------------------- |:----------:|:------------------:|
@@ -91,7 +91,7 @@ Even though the distribution of a die is uniform, the sum of two dice has a pyra
 | >12      | -                               | 0          | impossible         |
 | **Total**|                                  | **36**     | **100%**           |
 
-The pyramidal format appears again! It appears because different outcomes can generate the same dice sum. Let's redo the graph above with the numbers we have found:
+The pyramidal shape appears again! It happens because different outcomes can generate the same dice sum. Let's redo the graph above with the numbers we have found:
 
 ```python
 g = np.random.default_rng(0x533D)
@@ -116,7 +116,7 @@ plt.show()
 
 ![Two dice sum distribution with error bars](/images/delta-random-variable_6_0.png)
 
-The values from the simulation are inside the error bars (the error bars are not exact, but an approximation). So our calculation makes sense! We can reason what we have done using the [Kroeneker delta](https://en.wikipedia.org/wiki/Kronecker_delta):
+The values from the simulation are within the error bars (the error bars are not exact, but an approximation). So our calculation makes sense! We can reason about what we have done using the [Kronecker delta](https://en.wikipedia.org/wiki/Kronecker_delta):
 
 $$
 p(s) = \sum_{i=1}^6\sum_{j=1}^6 p(i) p(j) \delta_{i+j,s},~~~ \delta_{a, b} =
@@ -132,7 +132,7 @@ $$
 \begin{align*}
 p(s=3) &= \sum_{i=1}^6\sum_{j=1}^6 p(i) p(j) \delta_{i+j,3}\\
        &= p(1) p(2) + p(2) p(1) = \frac{1}{6} \frac{1}{6} + \frac{1}{6} \frac{1}{6}\\
-       &= \frac{1}{18} = 5.\bar5\%\\
+       &= \frac{2}{36} = 5.\bar5\%\\
 \end{align*}
 $$
 
@@ -144,7 +144,7 @@ $$
 p(z) = \int_\Omega p(x, y) \delta\left(z - f(x, y)\right)dxdy
 $$
 
-It has nice properties, since if we integrate it in the $z$ domain $\Omega_z$ we have 1, as expected:
+It has nice properties, since if we integrate it over the $z$ domain $\Omega_z$ we have 1, as expected:
 
 $$
 \int_{\Omega_z}p(z)dz = \int_\Omega p(x, y) \int_{\Omega_z}\delta\left(z - f(x, y)\right)dzdxdy = \int_\Omega p(x, y) dxdy = 1

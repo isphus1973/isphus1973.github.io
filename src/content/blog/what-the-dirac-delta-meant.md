@@ -1,22 +1,22 @@
 ---
-title: "What the Dirac Delta meant"
-description: "In previous posts, I shown how the importance of de Dirac Delta in computing the distribution density of a function of random variables, but I missed to show where it came from."
+title: "What the Dirac Delta Meant"
+description: "In previous posts, I showed the importance of the Dirac Delta in computing the distribution density of a function of random variables, but I missed showing where it came from."
 pubDate: "2023-07-18"
 heroImage: "../../assets/blog-placeholder-3.jpg"
 ---
 
-In [previous posts](/calculating-a-distribution-of-a-function-of-random-variables.html), I shown how the importance of the Dirac Delta in computing the distribution density of a function of random variables, but I missed to show where it came from.
+In [previous posts](/blog/calculating-a-distribution-of-a-function-of-random-variables), I showed the importance of the Dirac Delta in computing the distribution density of a function of random variables, but I didn't show where it comes from.
 
-From the dice idea, the probability of finding two dice which the sum is $s$ is to sum all the probabilities in which the sum is $s$. Sounds strange, isn't it? But it is that simple, I guess. If the set of all possible outcomes of two dice is $\Omega$ and the set of outcomes in which the sum is $s$ is $\Omega_s$, then the final probability is the sum over the intersection of these sets:
+Starting from the dice example, the probability of finding two dice whose sum is $s$ is simply the sum of all probabilities where the sum is $s$. Sounds strange, doesn't it? But it's really that simple. If the set of all possible outcomes of two dice is $\Omega$ and the set of outcomes where the sum is $s$ is $\Omega_s$, then the final probability is the sum over the intersection of these sets:
 
 $$
 P(sum=s) = \sum_{i,j \in \Omega \cap \Omega_s} P(face=i) P(face=j)
 $$
 
-There is another way to write the same equation, using the [Kroeneker delta](https://en.wikipedia.org/wiki/Kronecker_delta):
+There's another way to write the same equation, using the [Kronecker delta](https://en.wikipedia.org/wiki/Kronecker_delta):
 
 $$
-P(sum=s) = \sum_{i,j\in\Omega}P(face=i)P(face-j)\delta_{i+j,s}
+P(sum=s) = \sum_{i,j\in\Omega}P(face=i)P(face=j)\delta_{i+j,s}
 $$
 
 The same idea applies to the continuous case:
@@ -28,4 +28,10 @@ p(y) &= \int_{\Omega \cap \Omega_y} p(x_1)...p(x_i)...p(x_n) dx^n\\
 \end{align*}
 $$
 
-It is related to [measure theory](https://en.wikipedia.org/wiki/Measure_(mathematics)). I have to study measure theory ^^".
+This is related to [measure theory](https://en.wikipedia.org/wiki/Measure_(mathematics)). I still have to study measure theory ^^".
+
+![Fair die distribution](/images/delta-random-variable_2_0.png)
+
+![Two dice sum distribution](/images/delta-random-variable_4_0.png)
+
+![Two Uniform distribution sum (z = x + y)](/images/delta-random-variable_9_0.png)
