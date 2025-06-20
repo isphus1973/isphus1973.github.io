@@ -1,0 +1,248 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-bvzihdzo> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/rss+xml" title="Remember Arthur" href="https://isphus1973.github.io/rss.xml"><meta name="generator" content="Astro v5.10.0"><!-- Font preloads --><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><!-- Canonical URL --><link rel="canonical" href="https://isphus1973.github.io/blog/calculating-a-distribution-of-a-function-of-random-variables/"><!-- Primary Meta Tags --><title>Calculating the Distribution of a Function of Random Variables</title><meta name="title" content="Calculating the Distribution of a Function of Random Variables"><meta name="description" content="Although I am a physicist, I have never taken an advanced course in statistics. However, I have faced many situations in my work where I needed to deal with random variables. This has led me to become interested in the use of the Dirac delta function to model the distribution of a function of a set of random variables."><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://isphus1973.github.io/blog/calculating-a-distribution-of-a-function-of-random-variables/"><meta property="og:title" content="Calculating the Distribution of a Function of Random Variables"><meta property="og:description" content="Although I am a physicist, I have never taken an advanced course in statistics. However, I have faced many situations in my work where I needed to deal with random variables. This has led me to become interested in the use of the Dirac delta function to model the distribution of a function of a set of random variables."><meta property="og:image" content="https://isphus1973.github.io/_astro/blog-placeholder-1.Bx0Zcyzv.jpg"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://isphus1973.github.io/blog/calculating-a-distribution-of-a-function-of-random-variables/"><meta property="twitter:title" content="Calculating the Distribution of a Function of Random Variables"><meta property="twitter:description" content="Although I am a physicist, I have never taken an advanced course in statistics. However, I have faced many situations in my work where I needed to deal with random variables. This has led me to become interested in the use of the Dirac delta function to model the distribution of a function of a set of random variables."><meta property="twitter:image" content="https://isphus1973.github.io/_astro/blog-placeholder-1.Bx0Zcyzv.jpg"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous"><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body, {delimiters: [ {left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false} ]})"></script><style>:root{--accent: #2337ff;--accent-dark: #000d8a;--black: 15, 18, 25;--gray: 96, 115, 159;--gray-light: 229, 233, 240;--gray-dark: 34, 41, 57;--gray-gradient: rgba(var(--gray-light), 50%), #fff;--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%)}@font-face{font-family:Atkinson;src:url(/fonts/atkinson-regular.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:Atkinson;src:url(/fonts/atkinson-bold.woff) format("woff");font-weight:700;font-style:normal;font-display:swap}body{font-family:Atkinson,sans-serif;margin:0;padding:0;text-align:left;background:linear-gradient(var(--gray-gradient)) no-repeat;background-size:100% 600px;word-wrap:break-word;overflow-wrap:break-word;color:rgb(var(--gray-dark));font-size:20px;line-height:1.7}main{width:720px;max-width:calc(100% - 2em);margin:auto;padding:3em 1em}h1,h2,h3,h4,h5,h6{margin:0 0 .5rem;color:rgb(var(--black));line-height:1.2}h1{font-size:3.052em}h2{font-size:2.441em}h3{font-size:1.953em}h4{font-size:1.563em}h5{font-size:1.25em}strong,b{font-weight:700}a,a:hover{color:var(--accent)}p{margin-bottom:1em}.prose p{margin-bottom:2em}textarea{width:100%;font-size:16px}input{font-size:16px}table{width:100%}img{max-width:100%;height:auto;border-radius:8px}code{padding:2px 5px;background-color:rgb(var(--gray-light));border-radius:2px}pre{padding:1.5em;border-radius:8px}pre>code{all:unset}blockquote{border-left:4px solid var(--accent);padding:0 0 0 20px;margin:0;font-size:1.333em}hr{border:none;border-top:1px solid rgb(var(--gray-light))}@media (max-width: 720px){body{font-size:18px}main{padding:1em}}.sr-only{border:0;padding:0;margin:0;position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px);clip-path:inset(50%);white-space:nowrap}a[data-astro-cid-eimmu3lg]{display:inline-block;text-decoration:none}a[data-astro-cid-eimmu3lg].active{font-weight:bolder;text-decoration:underline}header[data-astro-cid-3ef6ksr2]{margin:0;padding:0 1em;background:#fff;box-shadow:0 2px 8px rgba(var(--black),5%)}h2[data-astro-cid-3ef6ksr2]{margin:0;font-size:1em}h2[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2],h2[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2].active{text-decoration:none}nav[data-astro-cid-3ef6ksr2]{display:flex;align-items:center;justify-content:space-between}nav[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]{padding:1em .5em;color:var(--black);border-bottom:4px solid transparent;text-decoration:none}nav[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2].active{text-decoration:none;border-bottom-color:var(--accent)}.social-links[data-astro-cid-3ef6ksr2],.social-links[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]{display:flex}@media (max-width: 720px){.social-links[data-astro-cid-3ef6ksr2]{display:none}}footer[data-astro-cid-sz7xmlte]{padding:2em 1em 6em;background:linear-gradient(var(--gray-gradient)) no-repeat;color:rgb(var(--gray));text-align:center}.social-links[data-astro-cid-sz7xmlte]{display:flex;justify-content:center;gap:1em;margin-top:1em}.social-links[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]{text-decoration:none;color:rgb(var(--gray))}.social-links[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]:hover{color:rgb(var(--gray-dark))}
+main[data-astro-cid-bvzihdzo]{width:calc(100% - 2em);max-width:100%;margin:0}.hero-image[data-astro-cid-bvzihdzo]{width:100%}.hero-image[data-astro-cid-bvzihdzo] img[data-astro-cid-bvzihdzo]{display:block;margin:0 auto;border-radius:12px;box-shadow:var(--box-shadow)}.prose[data-astro-cid-bvzihdzo]{width:720px;max-width:calc(100% - 2em);margin:auto;padding:1em;color:rgb(var(--gray-dark))}.title[data-astro-cid-bvzihdzo]{margin-bottom:1em;padding:1em 0;text-align:center;line-height:1}.title[data-astro-cid-bvzihdzo] h1[data-astro-cid-bvzihdzo]{margin:0 0 .5em}.date[data-astro-cid-bvzihdzo]{margin-bottom:.5em;color:rgb(var(--gray))}.last-updated-on[data-astro-cid-bvzihdzo]{font-style:italic}
+</style></head> <body data-astro-cid-bvzihdzo> <header data-astro-cid-3ef6ksr2> <nav data-astro-cid-3ef6ksr2> <h2 data-astro-cid-3ef6ksr2><a href="/" data-astro-cid-3ef6ksr2>Remember Arthur</a></h2> <div class="internal-links" data-astro-cid-3ef6ksr2> <a href="/" data-astro-cid-3ef6ksr2="true" data-astro-cid-eimmu3lg> Home </a>  <a href="/blog" class="active" data-astro-cid-3ef6ksr2="true" data-astro-cid-eimmu3lg> Blog </a>  <a href="/about" data-astro-cid-3ef6ksr2="true" data-astro-cid-eimmu3lg> About </a>  </div> <div class="social-links" data-astro-cid-3ef6ksr2></div> </nav> </header>  <main data-astro-cid-bvzihdzo> <article data-astro-cid-bvzihdzo> <div class="hero-image" data-astro-cid-bvzihdzo> <img src="/_astro/blog-placeholder-2.1WQRLJGH_Z2sp8RF.webp" alt data-astro-cid-bvzihdzo="true" loading="lazy" decoding="async" fetchpriority="auto" width="1020" height="510"> </div> <div class="prose" data-astro-cid-bvzihdzo> <div class="title" data-astro-cid-bvzihdzo> <div class="date" data-astro-cid-bvzihdzo> <time datetime="2023-07-17T00:00:00.000Z"> Jul 17, 2023 </time>  </div> <h1 data-astro-cid-bvzihdzo>Calculating the Distribution of a Function of Random Variables</h1> <hr data-astro-cid-bvzihdzo> </div>  <p>Although I am a physicist, I have never taken an advanced course in statistics. However, I have faced many situations in my work where I needed to deal with random variables. This has led me to become interested in the use of the Dirac delta function to model the distribution of a function of a set of random variables.</p>
+<p>The Dirac delta, represented as $\delta(x)$, is a generalized function that has the nice property:</p>
+<p>$$
+\int_\Omega f(x) \delta(x-a) dx = f(a), ~\forall a \in \Omega
+$$</p>
+<p>This makes it well-suited for modeling the distribution of a function of a set of random variables, because it allows us to calculate the contribution of a single point.</p>
+<p>For instance, the distribution of the random variable $\hat{Z}$, $p(z)$, given by the equation $\hat{Z} = f\left(\hat{X}, \hat{Y}\right)$, in which the random variables are distributed according to the density function $p(x, y)$ with domain $\Omega$, is given by</p>
+<p>$$
+p(z) = \int_\Omega p(x, y) \delta\left(z - f(x, y)\right)dxdy
+$$</p>
+<p>In the rest of this blog post, I will give the intuition behind how the distribution of a function of random variables works, using the sum of rolling independent dice as an example. I will then present the general formula for discrete random variables, and then for continuous random variables. Finally, I will discuss the situation of conditional probabilities, sampling, and some interesting observations.</p>
+<h2 id="craps">Craps</h2>
+<p>In many movies featuring casinos, the characters play a game called <a href="https://en.wikipedia.org/wiki/Craps">craps</a>, in which the points of each player come from the result of the sum of the values of two dice. We know that the distribution of a fair die is $1/6$ for each face, but what about two dice?</p>
+<p>First, let’s check an empirical distribution of the sum of two fair dice. By fair, I mean the chance of getting any of its faces is equal to $1/6$, i.e., it is a <a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">uniform distribution</a>. Its distribution is shown below:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> numpy </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> np</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> matplotlib.pyplot </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> plt</span></span>
+<span class="line"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> matplotlib.ticker </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> PercentFormatter</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">g </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> np.random.default_rng(</span><span style="color:#F97583">0x</span><span style="color:#79B8FF">533D</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">N </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 1_000_000</span></span>
+<span class="line"><span style="color:#E1E4E8">sample </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> g.integers(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">7</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">size</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">N)</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.hist(sample, </span><span style="color:#FFAB70">density</span><span style="color:#F97583">=</span><span style="color:#79B8FF">True</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">bins</span><span style="color:#F97583">=</span><span style="color:#79B8FF">range</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">8</span><span style="color:#E1E4E8">), </span><span style="color:#FFAB70">align</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"left"</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">edgecolor</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">'black'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">ax </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> plt.gca()</span></span>
+<span class="line"><span style="color:#E1E4E8">ax.spines[</span><span style="color:#9ECBFF">'top'</span><span style="color:#E1E4E8">].set_visible(</span><span style="color:#79B8FF">False</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">ax.spines[</span><span style="color:#9ECBFF">'right'</span><span style="color:#E1E4E8">].set_visible(</span><span style="color:#79B8FF">False</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.title(</span><span style="color:#9ECBFF">"Fair die distribution"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.ylabel(</span><span style="color:#9ECBFF">"Percentage"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.xlabel(</span><span style="color:#9ECBFF">"Die face"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.xticks(</span><span style="color:#79B8FF">range</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">7</span><span style="color:#E1E4E8">))</span></span>
+<span class="line"><span style="color:#E1E4E8">ax.yaxis.set_major_formatter(PercentFormatter(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">))</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.show()</span></span></code></pre>
+<p><img src="/images/delta-random-variable_2_0.png" alt="Fair die distribution"></p>
+<p>As expected, each face was drawn approximately $1/6\sim 16.\bar{6}$%. It is a uniform distribution. If we sum two of these uniform distributions, we get the two-dice sum distribution, which is not a uniform distribution, as shown below:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#E1E4E8">g </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> np.random.default_rng(</span><span style="color:#F97583">0x</span><span style="color:#79B8FF">533D</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">N </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 100_000</span></span>
+<span class="line"><span style="color:#E1E4E8">sample </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> g.integers(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">7</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">size</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">(N, </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">))</span></span>
+<span class="line"><span style="color:#E1E4E8">sample_sum </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> sample.sum(</span><span style="color:#FFAB70">axis</span><span style="color:#F97583">=</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.hist(sample_sum, </span><span style="color:#FFAB70">density</span><span style="color:#F97583">=</span><span style="color:#79B8FF">True</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">bins</span><span style="color:#F97583">=</span><span style="color:#79B8FF">range</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">14</span><span style="color:#E1E4E8">), </span><span style="color:#FFAB70">align</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"left"</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">edgecolor</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">'black'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">ax </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> plt.gca()</span></span>
+<span class="line"><span style="color:#E1E4E8">ax.spines[</span><span style="color:#9ECBFF">'top'</span><span style="color:#E1E4E8">].set_visible(</span><span style="color:#79B8FF">False</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">ax.spines[</span><span style="color:#9ECBFF">'right'</span><span style="color:#E1E4E8">].set_visible(</span><span style="color:#79B8FF">False</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.title(</span><span style="color:#9ECBFF">"Two fair dice sum distribution"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.ylabel(</span><span style="color:#9ECBFF">"Percentage"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.xlabel(</span><span style="color:#9ECBFF">"Dice sum"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.xticks(</span><span style="color:#79B8FF">range</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">13</span><span style="color:#E1E4E8">))</span></span>
+<span class="line"><span style="color:#E1E4E8">ax.yaxis.set_major_formatter(PercentFormatter(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">))</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.show()</span></span></code></pre>
+<p><img src="/images/delta-random-variable_4_0.png" alt="Two dice sum distribution"></p>
+<p>Even though the distribution of a die is uniform, the sum of two dice has a pyramidal shape. We can reason about this shape by calculating how many ways the dice can land to generate each result. For example, to get the value $3$, the dice could be (1, 2) or (2, 1), but to get the value 2, both dice must land on 1: (1, 1). All the possibilities are mapped in the table below:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="center">Dice sum</th><th align="left">Possible outcomes</th><th align="center"># outcomes</th><th align="center">percentage</th></tr></thead><tbody><tr><td align="center">1</td><td align="left">-</td><td align="center">0</td><td align="center">impossible</td></tr><tr><td align="center">2</td><td align="left">(1, 1)</td><td align="center">1</td><td align="center">$2.\bar7$%</td></tr><tr><td align="center">3</td><td align="left">(1, 2), (2, 1)</td><td align="center">2</td><td align="center">$5.\bar5$%</td></tr><tr><td align="center">4</td><td align="left">(1, 3), (2, 2), (3, 1)</td><td align="center">3</td><td align="center">$8.\bar3$%</td></tr><tr><td align="center">5</td><td align="left">(1, 4), (2, 3), (3, 2), (4, 1)</td><td align="center">4</td><td align="center">$11.\bar1$%</td></tr><tr><td align="center">6</td><td align="left">(1, 5), (2, 4), (3, 3), (4, 2), (5, 1)</td><td align="center">5</td><td align="center">$13.\bar8$%</td></tr><tr><td align="center">7</td><td align="left">(1, 6), (2, 5), (3, 4), (4, 3), (5, 2), (6, 1)</td><td align="center">6</td><td align="center">$16.\bar6$%</td></tr><tr><td align="center">8</td><td align="left">(2, 6), (3, 5), (4, 4), (5, 3), (6, 2)</td><td align="center">5</td><td align="center">$13.\bar8$%</td></tr><tr><td align="center">9</td><td align="left">(3, 6), (4, 5), (5, 4), (6, 3)</td><td align="center">4</td><td align="center">$11.\bar1$%</td></tr><tr><td align="center">10</td><td align="left">(4, 6), (5, 5), (6, 4)</td><td align="center">3</td><td align="center">$8.\bar3$%</td></tr><tr><td align="center">11</td><td align="left">(5, 6), (6, 5)</td><td align="center">2</td><td align="center">$5.\bar5$%</td></tr><tr><td align="center">12</td><td align="left">(6, 6)</td><td align="center">1</td><td align="center">$2.\bar7$%</td></tr><tr><td align="center">>12</td><td align="left">-</td><td align="center">0</td><td align="center">impossible</td></tr><tr><td align="center"><strong>Total</strong></td><td align="left"></td><td align="center"><strong>36</strong></td><td align="center"><strong>100%</strong></td></tr></tbody></table>
+<p>The pyramidal shape appears again! It happens because different outcomes can generate the same dice sum. Let’s redo the graph above with the numbers we have found:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#E1E4E8">g </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> np.random.default_rng(</span><span style="color:#F97583">0x</span><span style="color:#79B8FF">533D</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">N </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 100_000</span></span>
+<span class="line"><span style="color:#E1E4E8">sample </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> g.integers(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">7</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">size</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">(N, </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">))</span></span>
+<span class="line"><span style="color:#E1E4E8">sample_sum </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> sample.sum(</span><span style="color:#FFAB70">axis</span><span style="color:#F97583">=</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">dice_sum_proba </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> np.array([</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">6</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">5</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">3</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">]) </span><span style="color:#F97583">/</span><span style="color:#79B8FF"> 36</span></span>
+<span class="line"><span style="color:#6A737D"># Central Limit Theorem in 95% confidence</span></span>
+<span class="line"><span style="color:#E1E4E8">err </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [</span><span style="color:#79B8FF">3.2</span><span style="color:#F97583"> *</span><span style="color:#E1E4E8"> np.sqrt(p</span><span style="color:#F97583">*</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#F97583">-</span><span style="color:#E1E4E8">p)</span><span style="color:#F97583">/</span><span style="color:#E1E4E8">N) </span><span style="color:#F97583">for</span><span style="color:#E1E4E8"> p </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> dice_sum_proba]</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.hist(sample_sum, </span><span style="color:#FFAB70">density</span><span style="color:#F97583">=</span><span style="color:#79B8FF">True</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">bins</span><span style="color:#F97583">=</span><span style="color:#79B8FF">range</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">14</span><span style="color:#E1E4E8">), </span><span style="color:#FFAB70">align</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"left"</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">edgecolor</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">'black'</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.errorbar(</span><span style="color:#79B8FF">list</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">range</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">13</span><span style="color:#E1E4E8">)), dice_sum_proba, </span><span style="color:#FFAB70">yerr</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">err, </span><span style="color:#FFAB70">fmt</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">'o'</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">capsize</span><span style="color:#F97583">=</span><span style="color:#79B8FF">4</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">ax </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> plt.gca()</span></span>
+<span class="line"><span style="color:#E1E4E8">ax.spines[</span><span style="color:#9ECBFF">'top'</span><span style="color:#E1E4E8">].set_visible(</span><span style="color:#79B8FF">False</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">ax.spines[</span><span style="color:#9ECBFF">'right'</span><span style="color:#E1E4E8">].set_visible(</span><span style="color:#79B8FF">False</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.title(</span><span style="color:#9ECBFF">"Two fair dice sum distribution"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.ylabel(</span><span style="color:#9ECBFF">"Percentage"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.xlabel(</span><span style="color:#9ECBFF">"Dice sum"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.xticks(</span><span style="color:#79B8FF">range</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">13</span><span style="color:#E1E4E8">))</span></span>
+<span class="line"><span style="color:#E1E4E8">ax.yaxis.set_major_formatter(PercentFormatter(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">))</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.show()</span></span></code></pre>
+<p><img src="/images/delta-random-variable_6_0.png" alt="Two dice sum distribution with error bars"></p>
+<p>The values from the simulation are within the error bars (the error bars are not exact, but an approximation). So our calculation makes sense! We can reason about what we have done using the <a href="https://en.wikipedia.org/wiki/Kronecker_delta">Kronecker delta</a>:</p>
+<p>$$
+p(s) = \sum_{i=1}^6\sum_{j=1}^6 p(i) p(j) \delta_{i+j,s},~~~ \delta_{a, b} =
+\begin{cases}
+1 &#x26; \text{if } a=b \\
+0 &#x26; \text{otherwise }
+\end{cases}
+$$</p>
+<p>For instance, for $p(s=3)$:</p>
+<p>$$
+\begin{align*}
+p(s=3) &#x26;= \sum_{i=1}^6\sum_{j=1}^6 p(i) p(j) \delta_{i+j,3}\
+&#x26;= p(1) p(2) + p(2) p(1) = \frac{1}{6} \frac{1}{6} + \frac{1}{6} \frac{1}{6}\
+&#x26;= \frac{2}{36} = 5.\bar5%\
+\end{align*}
+$$</p>
+<h2 id="the-triangle">The triangle</h2>
+<p>The same can be applied to continuous functions with:</p>
+<p>$$
+p(z) = \int_\Omega p(x, y) \delta\left(z - f(x, y)\right)dxdy
+$$</p>
+<p>It has nice properties, since if we integrate it over the $z$ domain $\Omega_z$ we have 1, as expected:</p>
+<p>$$
+\int_{\Omega_z}p(z)dz = \int_\Omega p(x, y) \int_{\Omega_z}\delta\left(z - f(x, y)\right)dzdxdy = \int_\Omega p(x, y) dxdy = 1
+$$</p>
+<p>Let’s make an example for the sum of two continuous independent uniform distributions $\hat{X}\sim U[0,1]$ and $\hat{Y}\sim U[0,1]$:</p>
+<p>$$
+\hat{Z} = \hat{X} + \hat{Y}
+$$</p>
+<p>So the final distribution is given by the integral below:</p>
+<p>$$
+\begin{align*}
+p(z) &#x26;= \int_\Omega p(x, y) \delta\left(z - x - y\right)dxdy\
+&#x26;= \int_0^1\int_0^1 \delta\left(x - z +y\right)dxdy\
+&#x26;= \begin{cases}
+\int_{\max(0, z - 1)}^{\min(1, z)} dx &#x26; \text{if } 0&#x3C;z&#x3C;2 \
+0 &#x26; \text{otherwise }
+\end{cases} \
+&#x26;= \begin{cases}
+\min(1, z) -  \max(0, z - 1)&#x26; \text{if } 0&#x3C;z&#x3C;2 \
+0 &#x26; \text{otherwise }
+\end{cases}
+\end{align*}
+$$</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#B392F0">@np.vectorize</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">otypes</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">[np.float64])</span></span>
+<span class="line"><span style="color:#F97583">def</span><span style="color:#B392F0"> p</span><span style="color:#E1E4E8">(z):</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#79B8FF"> 0</span><span style="color:#F97583"> &#x3C;</span><span style="color:#E1E4E8"> z </span><span style="color:#F97583">&#x3C;</span><span style="color:#79B8FF"> 2</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#79B8FF"> min</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">, z) </span><span style="color:#F97583">-</span><span style="color:#79B8FF"> max</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, z</span><span style="color:#F97583">-</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#F97583">    else</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#F97583">        return</span><span style="color:#79B8FF"> 0</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">z </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> np.linspace(</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">2.5</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">num</span><span style="color:#F97583">=</span><span style="color:#79B8FF">1_000</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">prob </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> p(z)</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.plot(z, prob)</span></span>
+<span class="line"><span style="color:#E1E4E8">ax </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> plt.gca()</span></span>
+<span class="line"><span style="color:#E1E4E8">ax.spines[</span><span style="color:#9ECBFF">'top'</span><span style="color:#E1E4E8">].set_visible(</span><span style="color:#79B8FF">False</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">ax.spines[</span><span style="color:#9ECBFF">'right'</span><span style="color:#E1E4E8">].set_visible(</span><span style="color:#79B8FF">False</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.title(</span><span style="color:#9ECBFF">"Two Uniform distribution sum (z = x + y)"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.ylabel(</span><span style="color:#9ECBFF">"Percentage"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.xlabel(</span><span style="color:#9ECBFF">"z"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">ax.yaxis.set_major_formatter(PercentFormatter(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">))</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.show()</span></span></code></pre>
+<p><img src="/images/delta-random-variable_9_0.png" alt="Two Uniform distribution sum (z = x + y)"></p>
+<p>Now, let’s test if we get the same result from a simulation:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#E1E4E8">g </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> np.random.default_rng(</span><span style="color:#F97583">0x</span><span style="color:#79B8FF">533D</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">N </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 1_000_000</span></span>
+<span class="line"><span style="color:#E1E4E8">sample </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> g.uniform(</span><span style="color:#FFAB70">size</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">N) </span><span style="color:#F97583">+</span><span style="color:#E1E4E8"> g.uniform(</span><span style="color:#FFAB70">size</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">N)</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.hist(sample, </span><span style="color:#FFAB70">density</span><span style="color:#F97583">=</span><span style="color:#79B8FF">True</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">bins</span><span style="color:#F97583">=</span><span style="color:#79B8FF">100</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.plot(z, prob)</span></span>
+<span class="line"><span style="color:#E1E4E8">ax </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> plt.gca()</span></span>
+<span class="line"><span style="color:#E1E4E8">ax.spines[</span><span style="color:#9ECBFF">'top'</span><span style="color:#E1E4E8">].set_visible(</span><span style="color:#79B8FF">False</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">ax.spines[</span><span style="color:#9ECBFF">'right'</span><span style="color:#E1E4E8">].set_visible(</span><span style="color:#79B8FF">False</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.title(</span><span style="color:#9ECBFF">"Two Uniform distribution sum (z = x + y)"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.ylabel(</span><span style="color:#9ECBFF">"Percentage"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.xlabel(</span><span style="color:#9ECBFF">"z"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">ax.yaxis.set_major_formatter(PercentFormatter(</span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">))</span></span>
+<span class="line"><span style="color:#E1E4E8">plt.show()</span></span></code></pre>
+<p><img src="/images/delta-random-variable_11_0.png" alt="Two Uniform distribution sum (z = x + y) - simulation"></p>
+<p>Great! I know I promised myself to write more topics here. But I deviated from the task and realized that I might have to study measure theory ^^”.</p>  </div> </article> </main> <footer data-astro-cid-sz7xmlte>
+&copy; 2025 Arthur Scardua. Site developed with <a href="https://github.com/withastro/astro/tree/main" target="_blank" rel="noopener noreferrer" data-astro-cid-sz7xmlte>Astro Blog</a>.
+</footer>  </body></html>
