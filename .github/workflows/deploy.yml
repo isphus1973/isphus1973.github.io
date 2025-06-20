@@ -16,8 +16,6 @@ jobs:
         run: |
           corepack enable
           pnpm install --frozen-lockfile || npm install
-      - name: Criar arquivo .nojekyll
-        run: touch ./dist/.nojekyll
       - name: Build
         run: |
           pnpm run build || npm run build
