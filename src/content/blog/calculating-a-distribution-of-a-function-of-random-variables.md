@@ -2,7 +2,7 @@
 title: "Calculating the Distribution of a Function of Random Variables"
 description: "Although I am a physicist, I have never taken an advanced course in statistics. However, I have faced many situations in my work where I needed to deal with random variables. This has led me to become interested in the use of the Dirac delta function to model the distribution of a function of a set of random variables."
 pubDate: "2023-07-17"
-heroImage: "../../assets/blog-placeholder-3.jpg"
+heroImage: "../../assets/blog-placeholder-2.jpg"
 ---
 
 Although I am a physicist, I have never taken an advanced course in statistics. However, I have faced many situations in my work where I needed to deal with random variables. This has led me to become interested in the use of the Dirac delta function to model the distribution of a function of a set of random variables.
@@ -121,7 +121,7 @@ The values from the simulation are within the error bars (the error bars are not
 $$
 p(s) = \sum_{i=1}^6\sum_{j=1}^6 p(i) p(j) \delta_{i+j,s},~~~ \delta_{a, b} =
 \begin{cases}
-    1 & \text{if } a=b \\
+    1 & \text{if } a=b \\\\
     0 & \text{otherwise }
 \end{cases}
 $$

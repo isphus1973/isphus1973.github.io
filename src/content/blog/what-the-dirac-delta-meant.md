@@ -23,7 +23,7 @@ The same idea applies to the continuous case:
 
 $$
 \begin{align*}
-p(y) &= \int_{\Omega \cap \Omega_y} p(x_1)...p(x_i)...p(x_n) dx^n\\
+p(y) &= \int_{\Omega \cap \Omega_y} p(x_1)...p(x_i)...p(x_n) dx^n\\\\
     &= \int_\Omega p(x_1)...p(x_i)...p(x_n) \delta\left(y-f(x_1, ..., x_n)\right) dx^n
 \end{align*}
 $$
