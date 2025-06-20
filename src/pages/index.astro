@@ -1,0 +1,40 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>🦹‍♂️ Welcome to my public notebook!</h1>
+			<p>
+				This blog is a personal space to record ideas, notes, experiments, questions, and discoveries I find interesting — even if they're incomplete, wrong, or still in progress.
+			</p>
+			<p>
+				The main goal is to serve as a reference repository for my "future self." Here you'll find posts about math, physics, programming, curiosities, open problems, and various reflections.
+			</p>
+			<p>
+				Don't expect perfection: many texts are drafts, may contain conceptual errors or partial explanations. But for me, every entry has value — whether to revisit, correct, or simply remember how I thought about a certain topic.
+			</p>
+			<p>
+				If you landed here by chance, feel free to explore, disagree, suggest, or just get inspired. Just don't expect a definitive manual: this is a blog of living notes, always changing.
+			</p>
+			<ul>
+				<li>Posts on various topics, with no commitment to regularity or completeness</li>
+				<li>Content frequently revisited, corrected, and expanded</li>
+				<li>Focus on learning, memory, and personal record</li>
+			</ul>
+			<p>
+				Thanks for visiting! If anything here helps, confuses, or inspires you, it was already worth it.
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
